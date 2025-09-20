@@ -9,14 +9,16 @@ fn main() {
     let mut input = String::new();
     let secret_number: i32 = rand::thread_rng().gen_range(1..100);
     // println!("The secret number is: {secret_number}");
+    let mut trys: i32 = 0;
 
     while input.trim() != secret_number.to_string().trim() {
-
         input = String::new();
-
         io::stdin()
             .read_line(&mut input)
             .expect("tf did you even type brah?");
+
+        trys+=1;
+
 
         let input = input
             .trim()
@@ -33,7 +35,7 @@ fn main() {
 
     }
 
-    println!("The secret number is: {secret_number}");
+    println!("The secret number is: {secret_number} and you guessed it in {trys} tries!");
     
 }
 
