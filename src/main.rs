@@ -1,4 +1,4 @@
-use std::cmp::Ordering;//for match statement [Line 36]
+use std::cmp::Ordering;//for match statement
 use std::io;//for user input 
 use rand::Rng;//for random number 
 
@@ -30,15 +30,16 @@ fn main() {
         let input = input
             .trim()//NOTE: .trim() converts a String into a string slice,
             .parse::<i32>()//as directly converting a String into i32 will throw a ParseIntError / InvalidDigits because of whitespaces.
-            .expect("ERROR ON COVERTING THE String INTO i32.");//The program will stop the program and will made us aware of the error and where it occurred 
+            .expect("ERROR ON COVERTING THE String INTO i32.");//The program will stop the program and will made us aware of the error and where it occurred
 
 // match blocks compare the value of two variable and executes a block of code corresponding on the matched pattern like Ordering::[Greater, Equal, Less].
         match input.cmp(&secret_number)//we compare the value of secret_number into the input. match acts like a shorter if-statement.
-            {
+        {
             Ordering::Greater => println!("Smaller!"),// If the guess of the player is greater than the secret number, We would ask them to guess a little lower.
             Ordering::Equal => println!("YOU ARE CORRECT!!"),//executes when the have guessed the secret number.
             Ordering::Less => println!("Bigger!!"),//then, if they game a  lower number than the secret number we would ask for a higher one.
         }
+
         println!("You guessed: {input}");//prints the user's guess. Why not?
 
     }
